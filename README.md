@@ -2,6 +2,11 @@
 
 A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.
 
+For more details, see GitHub blog and documentation.
+
+- [GitHub Actions: Deprecating set-env and add-path commands - GitHub Changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)
+- [Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files)
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
@@ -20,6 +25,48 @@ or Just use `npx` command
     Examples
       $ set-env-to-github_env
       # migration ./github/workflows/*.{yml,yaml}
+
+## Example
+
+Before
+
+```yaml
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-18.04
+    steps:
+      - name: set env for prod
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "::set-env name=ACCOUNT_ID::${ACCOUNT_ID}"
+          echo "::set-env name=BUCKET_NAME::${BUCKET_NAME}"
+        env:
+          ACCOUNT_ID: 123456789012
+          BUCKET_NAME: deploy-prod
+```
+
+After
+
+```yaml
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-18.04
+    steps:
+      - name: set env for prod
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "ACCOUNT_ID=${ACCOUNT_ID}" >> $GITHUB_ENV
+          echo "BUCKET_NAME=${BUCKET_NAME}" >> $GITHUB_ENV
+        env:
+          ACCOUNT_ID: 123456789012
+          BUCKET_NAME: deploy-prod
+```
 
 ## Changelog
 
