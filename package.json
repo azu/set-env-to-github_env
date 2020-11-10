@@ -1,0 +1,79 @@
+{
+  "name": "set-env-to-github_env",
+  "version": "1.0.0",
+  "description": "A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.",
+  "keywords": [
+    "github",
+    "actions",
+    "migration",
+    "github-actions"
+  ],
+  "homepage": "https://github.com/azu/set-env-to-github_env",
+  "bugs": {
+    "url": "https://github.com/azu/set-env-to-github_env/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/set-env-to-github_env.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "sideEffects": false,
+  "main": "lib/set-env-to-github_env.js",
+  "module": "module/set-env-to-github_env.js",
+  "types": "lib/set-env-to-github_env.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "bin": {
+    "set-env-to-github_env": "./bin/cmd.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "module"
+  ],
+  "scripts": {
+    "build": "tsc -p . && tsc -p ./tsconfig.module.json",
+    "clean": "rimraf lib/ module/",
+    "prepublishOnly": "npm run clean && npm run build",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "updateSnapshot": "UPDATE_SNAPSHOT=1 npm test",
+    "test": "mocha \"test/**/*.ts\"",
+    "watch": "tsc -p . --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.3",
+    "@types/node": "^14.14.7",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "mocha": "^8.2.1",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "ts-node-test-register": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "glob": "^7.1.6",
+    "meow": "^8.0.0"
+  }
+}

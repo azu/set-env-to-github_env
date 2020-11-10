@@ -1,0 +1,15 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-18.04
+    steps:
+      - name: set env for prod
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "::set-env name=ACCOUNT_ID::${ACCOUNT_ID}"
+          echo "::set-env name=BUCKET_NAME::${BUCKET_NAME}"
+        env:
+          ACCOUNT_ID: 123456789012
+          BUCKET_NAME: deploy-prod
