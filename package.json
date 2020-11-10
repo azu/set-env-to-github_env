@@ -1,6 +1,6 @@
 {
   "name": "set-env-to-github_env",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.",
   "keywords": [
     "github",
