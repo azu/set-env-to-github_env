@@ -17,6 +17,8 @@ or Just use `npx` command
 
     npx set-env-to-github_env
 
+**Require:** Node.js 14+
+
 ## Usage
 
     Usage
