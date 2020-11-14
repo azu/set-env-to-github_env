@@ -1,4 +1,4 @@
-# set-env-to-github_env
+# set-env-to-github_env [![Actions Status: test](https://github.com/azu/set-env-to-github_env/workflows/test/badge.svg)](https://github.com/azu/set-env-to-github_env/actions?query=workflow%3A"test")
 
 A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.
 
