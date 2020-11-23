@@ -7,6 +7,9 @@ For more details, see GitHub blog and documentation.
 - [GitHub Actions: Deprecating set-env and add-path commands - GitHub Changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)
 - [Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files)
 
+TODO: This tool does not support `::add-path` migration yet.
+If you are interesting in this, please see https://github.com/azu/set-env-to-github_env/issues/2
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/):
