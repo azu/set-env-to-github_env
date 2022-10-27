@@ -4,7 +4,7 @@ A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.
 
 ## Supported Migration
 
-- [x] `echo "::set-env name=FILE_ID::${FILE_ID}"` → `echo "FILE_ID=${FILE_ID}" >> $GITHUB_ENV`
+- [x] `echo "::set-env name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_ENV`
 - [x] `echo "::set-output name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_OUTPUT`
 - [x] `echo "::set-state name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_STATE`
 
