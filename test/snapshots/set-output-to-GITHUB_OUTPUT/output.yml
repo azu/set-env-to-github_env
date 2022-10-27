@@ -1,0 +1,11 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: set env for prod
+        if: github.ref == 'refs/heads/main'
+      - name: Set output
+        run: echo "{name}={value}" >> $GITHUB_OUTPUT

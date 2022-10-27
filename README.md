@@ -2,10 +2,17 @@
 
 A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.
 
+## Supported Migration
+
+- [x] `echo "::set-env name=FILE_ID::${FILE_ID}"` → `echo "FILE_ID=${FILE_ID}" >> $GITHUB_ENV`
+- [x] `echo "::set-output name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_OUTPUT`
+- [x] `echo "::set-state name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_STATE`
+
 For more details, see GitHub blog and documentation.
 
 - [GitHub Actions: Deprecating set-env and add-path commands - GitHub Changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)
-- [Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files)
+- [GitHub Actions: Deprecating save-state and set-output commands | GitHub Changelog](https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/)
+- [Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files
 
 TODO: This tool does not support `::add-path` migration yet.
 If you are interesting in this, please see https://github.com/azu/set-env-to-github_env/issues/2
@@ -16,13 +23,15 @@ Install with [npm](https://www.npmjs.com/):
 
     npm install set-env-to-github_env
     
-or Just use `npx` command    
+or Just use `npx` command in project root directory.
 
     npx set-env-to-github_env
 
 **Require:** Node.js 14+
 
 ## Usage
+
+Run command in project root directory.
 
     Usage
       $ set-env-to-github_env
@@ -46,10 +55,10 @@ jobs:
       - name: set env for prod
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "::set-env name=ACCOUNT_ID::${ACCOUNT_ID}"
+          echo "::set-env name=FILE_ID::${FILE_ID}"
           echo "::set-env name=BUCKET_NAME::${BUCKET_NAME}"
         env:
-          ACCOUNT_ID: 123456789012
+          FILE_ID: 123456789012
           BUCKET_NAME: deploy-prod
 ```
 
@@ -66,10 +75,10 @@ jobs:
       - name: set env for prod
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "ACCOUNT_ID=${ACCOUNT_ID}" >> $GITHUB_ENV
+          echo "FILE_ID=${FILE_ID}" >> $GITHUB_ENV
           echo "BUCKET_NAME=${BUCKET_NAME}" >> $GITHUB_ENV
         env:
-          ACCOUNT_ID: 123456789012
+          FILE_ID: 123456789012
           BUCKET_NAME: deploy-prod
 ```
 

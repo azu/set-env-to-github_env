@@ -8,8 +8,8 @@ jobs:
       - name: set env for prod
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "::set-env name=ACCOUNT_ID::${ACCOUNT_ID}"
+          echo "::set-env name=FILE_ID::${FILE_ID}"
           echo "::set-env name=BUCKET_NAME::${BUCKET_NAME}"
         env:
-          ACCOUNT_ID: 123456789012
+          FILE_ID: 123456789012
           BUCKET_NAME: deploy-prod
