@@ -12,7 +12,7 @@ For more details, see GitHub blog and documentation.
 
 - [GitHub Actions: Deprecating set-env and add-path commands - GitHub Changelog](https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/)
 - [GitHub Actions: Deprecating save-state and set-output commands | GitHub Changelog](https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/)
-- [Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files
+- [Workflow commands for GitHub Actions - GitHub Docs](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#environment-files)
 
 TODO: This tool does not support `::add-path` migration yet.
 If you are interesting in this, please see https://github.com/azu/set-env-to-github_env/issues/2
