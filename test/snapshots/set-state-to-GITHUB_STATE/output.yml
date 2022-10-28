@@ -7,5 +7,11 @@ jobs:
     steps:
       - name: set env for prod
         if: github.ref == 'refs/heads/main'
-      - name: Set output
-        run: echo "{name}={value}" >> $GITHUB_STATE
+      - name: Set state
+        run: echo "key=$value" >> $GITHUB_STATE
+        eng:
+          value: "value"
+      - name: Set state
+        run: echo "key=value" >> $GITHUB_STATE
+      - name: Set state
+        run: echo "key=key" >> $GITHUB_STATE

@@ -8,4 +8,10 @@ jobs:
       - name: set env for prod
         if: github.ref == 'refs/heads/main'
       - name: Set output
-        run: echo "::set-output name={name}::{value}"
+        run: echo "::set-output name=key::$value"
+        env:
+          value: "value"
+      - name: Set output
+        run: echo "::set-output name=key::value"
+      - name: Set output
+        run: echo ::set-output name=key::value

@@ -13,3 +13,11 @@ jobs:
         env:
           FILE_ID: 123456789012
           BUCKET_NAME: deploy-prod
+      - name: set env for prod without quote
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "FILE_ID=${FILE_ID}" >> $GITHUB_ENV
+          echo "BUCKET_NAME=${BUCKET_NAME}" >> $GITHUB_ENV
+        env:
+          FILE_ID: 123456789012
+          BUCKET_NAME: deploy-prod
