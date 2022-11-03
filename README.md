@@ -4,9 +4,9 @@ A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.
 
 ## Supported Migration
 
-- [x] `echo "::set-env name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_ENV`
-- [x] `echo "::set-output name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_OUTPUT`
-- [x] `echo "::set-state name={name}::{value}"` → `echo "{name}={value}" >> $GITHUB_STATE`
+- [x] `echo "::set-env name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_ENV"`
+- [x] `echo "::set-output name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_OUTPUT"`
+- [x] `echo "::set-state name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_STATE"`
 
 For more details, see GitHub blog and documentation.
 
@@ -75,8 +75,8 @@ jobs:
       - name: set env for prod
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "FILE_ID=${FILE_ID}" >> $GITHUB_ENV
-          echo "BUCKET_NAME=${BUCKET_NAME}" >> $GITHUB_ENV
+          echo "FILE_ID=${FILE_ID}" >> "$GITHUB_ENV"
+          echo "BUCKET_NAME=${BUCKET_NAME}" >> "$GITHUB_ENV"
         env:
           FILE_ID: 123456789012
           BUCKET_NAME: deploy-prod
