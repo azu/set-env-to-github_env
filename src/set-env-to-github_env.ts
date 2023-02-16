@@ -4,7 +4,7 @@ export function convert(content: string) {
         `echo "$<name>=$<variableName>" >> "$GITHUB_ENV"`
     ] as const;
     const SAVE_PATTERN = [
-        /echo\s+(["'])?::set-state name=(?<name>\${?.+}?|.+)::(?<variableName>\${?.+}?|.+)\1/g,
+        /echo\s+(["'])?::save-state name=(?<name>\${?.+}?|.+)::(?<variableName>\${?.+}?|.+)\1/g,
         `echo "$<name>=$<variableName>" >> "$GITHUB_STATE"`
     ] as const;
     const OUTPUT_PATTERN = [

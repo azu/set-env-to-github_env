@@ -6,7 +6,7 @@ A migration tools convert `::set-env` to $GITHUB_ENV on GitHub Actions.
 
 - [x] `echo "::set-env name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_ENV"`
 - [x] `echo "::set-output name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_OUTPUT"`
-- [x] `echo "::set-state name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_STATE"`
+- [x] `echo "::save-state name={name}::{value}"` → `echo "{name}={value}" >> "$GITHUB_STATE"`
 
 For more details, see GitHub blog and documentation.
 

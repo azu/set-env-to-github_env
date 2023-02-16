@@ -1,0 +1,17 @@
+name: test
+on: [push, pull_request]
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: set env for prod
+        if: github.ref == 'refs/heads/main'
+      - name: Save state
+        run: echo "::save-state name=key::$value"
+        eng:
+          value: "value"
+      - name: Save state
+        run: echo "::save-state name=key::value"
+      - name: Save state
+        run: echo ::save-state name=key::key
